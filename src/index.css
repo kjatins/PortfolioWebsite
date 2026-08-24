@@ -1,0 +1,352 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --font-serif: 'Newsreader', serif;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: #fdfdfc;
+    color: #1c1c1c;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Ensure high-resolution crisp image rendering without blurry downsampling */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: auto;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* ==========================================================================
+   Responsive Container Normalization
+   ========================================================================== */
+
+#framer-page-root {
+  width: 100%;
+  overflow-x: clip;
+}
+
+/* Ensure all Framer page root wrappers center gracefully and scale */
+.framer-n7n09,
+.framer-lkQ4D,
+.framer-EBOwe,
+.framer-070gu,
+.framer-72XmH,
+.framer-8zZIr,
+.framer-USkFr {
+  margin: 0 auto !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   Header Theme Transitions (Light Mode vs Dark Mode on Scroll)
+   ========================================================================== */
+
+.framer-k0tl9o-container,
+.framer-Qwri2 {
+  transition: color 0.25s ease, filter 0.25s ease;
+}
+
+/* Light Mode: Header text, logo, and dots turn black for light backgrounds */
+.header-light-mode .framer-Qwri2 .framer-xi465y p,
+.header-light-mode .framer-Qwri2 .framer-1ltat5v p,
+.header-light-mode .framer-Qwri2 .framer-text {
+  color: rgb(0, 0, 0) !important;
+  --framer-text-color: rgb(0, 0, 0) !important;
+  --extracted-r6o4lv: rgb(0, 0, 0) !important;
+}
+
+.header-light-mode .framer-Qwri2 .framer-lj1p44 {
+  filter: invert(1) !important;
+  transition: filter 0.25s ease;
+}
+
+.header-light-mode .framer-Qwri2 .framer-g7vbmo > div > div {
+  background-color: rgb(0, 0, 0) !important;
+  transition: background-color 0.25s ease;
+}
+
+/* Dark Mode: Header text, logo, and dots stay white for dark backgrounds */
+.header-dark-mode .framer-Qwri2 .framer-xi465y p,
+.header-dark-mode .framer-Qwri2 .framer-1ltat5v p,
+.header-dark-mode .framer-Qwri2 .framer-text {
+  color: rgb(255, 255, 255) !important;
+  --framer-text-color: rgb(255, 255, 255) !important;
+  --extracted-r6o4lv: rgb(255, 255, 255) !important;
+}
+
+.header-dark-mode .framer-Qwri2 .framer-lj1p44 {
+  filter: none !important;
+  transition: filter 0.25s ease;
+}
+
+.header-dark-mode .framer-Qwri2 .framer-g7vbmo > div > div {
+  background-color: rgb(255, 255, 255) !important;
+  transition: background-color 0.25s ease;
+}
+
+/* ==========================================================================
+   Case Study Cards: Homepage Hover Interaction (Logo transforms to Image Mockup)
+   ========================================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .framer-34invq,
+  .framer-1xrht2x,
+  .framer-ydk9hk,
+  .framer-1m5wbrp,
+  .framer-1mer5ac,
+  .framer-137z4bw,
+  .framer-9kzw8j,
+  .framer-wqxvyq,
+  .framer-cfbypx,
+  .framer-1w8fgjk {
+    transition: opacity 0.4s cubic-bezier(0.44, 0, 0.56, 1) !important;
+    will-change: opacity;
+  }
+
+  /* 1. The Friedkin Group (/01) */
+  .framer-ANnBW:hover .framer-34invq {
+    opacity: 0 !important;
+  }
+  .framer-ANnBW:hover .framer-1xrht2x {
+    opacity: 1 !important;
+  }
+
+  /* 2. Dubai AI (/02) */
+  .framer-i3ngA:hover .framer-ydk9hk {
+    opacity: 0 !important;
+  }
+  .framer-i3ngA:hover .framer-1m5wbrp {
+    opacity: 1 !important;
+  }
+
+  /* 3. AI App Builder (/03) */
+  .framer-xJIGr:hover .framer-1mer5ac {
+    opacity: 0 !important;
+  }
+  .framer-xJIGr:hover .framer-137z4bw {
+    opacity: 1 !important;
+  }
+
+  /* 4. Sony (/04) */
+  .framer-kKXVO:hover .framer-9kzw8j {
+    opacity: 0 !important;
+  }
+  .framer-kKXVO:hover .framer-wqxvyq {
+    opacity: 1 !important;
+  }
+
+  /* 5. AMN Healthcare (/05) */
+  .framer-VpOHf:hover .framer-cfbypx {
+    opacity: 0 !important;
+  }
+  .framer-VpOHf:hover .framer-1w8fgjk {
+    opacity: 1 !important;
+  }
+}
+
+/* ==========================================================================
+   Prev / Next Case Study Navigation Cards: Arrow Reveal Interaction
+   ========================================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .framer-O2MOq .framer-1veugwi {
+    transition: gap 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  }
+
+  .framer-O2MOq .framer-1iybzov {
+    transition: opacity 0.35s ease, width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), padding 0.35s ease !important;
+    overflow: visible !important;
+  }
+
+  .framer-O2MOq:hover .framer-1veugwi {
+    gap: 8px !important;
+  }
+
+  .framer-O2MOq:hover .framer-1iybzov {
+    opacity: 1 !important;
+    width: 42px !important;
+    padding: 8px !important;
+  }
+}
+
+/* ==========================================================================
+   "Let's talk." Interactive Footer CTA: Smooth Rock-Solid Reveal (No Text Jumping)
+   ========================================================================== */
+
+.framer-jILoP.framer-asai9c,
+.framer-jILoP .framer-asai9c {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: auto !important;
+  gap: 0px !important;
+  position: relative !important;
+}
+
+.framer-jILoP .framer-1oki7wb {
+  flex: none !important;
+  white-space: pre !important;
+  transform: none !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .framer-jILoP .framer-y0lkhn {
+    width: 0px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    margin-left: 0px !important;
+    padding: 0px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.3s ease,
+                margin-left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    will-change: width, opacity, margin-left;
+  }
+
+  .framer-jILoP:hover .framer-y0lkhn,
+  .framer-jILoP.framer-asai9c:hover .framer-y0lkhn {
+    width: 44px !important;
+    opacity: 1 !important;
+    margin-left: 14px !important;
+  }
+}
+
+/* ==========================================================================
+   Header 9-Dots Menu Button & Overlay Dropdown Animations
+   ========================================================================== */
+
+/* Universal Pointer Cursor for all interactive/link elements */
+a,
+a *,
+button,
+button *,
+[role="button"],
+[data-framer-name="Link"],
+[data-framer-name="Link"] *,
+[data-framer-name="Menu button"],
+[data-framer-name="Menu button"] *,
+[data-framer-name="Linkedin"],
+[data-framer-name="Linkedin"] *,
+[data-framer-name="Behance"],
+[data-framer-name="Behance"] *,
+[data-framer-name="Dribbble"],
+[data-framer-name="Dribbble"] *,
+[data-framer-name="Instagram"],
+[data-framer-name="Instagram"] *,
+.framer-1y832nb,
+.framer-1y832nb *,
+.framer-1apfpzf,
+.framer-1apfpzf *,
+.framer-3jicop,
+.framer-3jicop *,
+.framer-ANnBW,
+.framer-ANnBW *,
+.framer-i3ngA,
+.framer-i3ngA *,
+.framer-xJIGr,
+.framer-xJIGr *,
+.framer-kKXVO,
+.framer-kKXVO *,
+.framer-VpOHf,
+.framer-VpOHf *,
+.framer-O2MOq,
+.framer-O2MOq *,
+.framer-jILoP,
+.framer-jILoP *,
+.cursor-pointer,
+.cursor-pointer * {
+  cursor: pointer !important;
+}
+
+/* Menu Dropdown Animation: Instant flawless opacity fade (no scale offset so text never jitters) */
+@keyframes framerOverlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.framer-overlay-dropdown {
+  animation: framerOverlayFadeIn 0.15s ease-out forwards;
+  will-change: opacity;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.framer-overlay-dropdown [role="dialog"] {
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   Mobile Responsive Optimizations
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  /* Remove excessive side paddings on mobile */
+  .framer-72rtr7,
+  .framer-1hpd296,
+  .framer-1xljfb1,
+  .framer-1uryk69,
+  .framer-ezowpm,
+  .framer-gkd66s,
+  .framer-16ohvo9,
+  .framer-ANnBW,
+  .framer-i3ngA,
+  .framer-xJIGr,
+  .framer-kKXVO,
+  .framer-VpOHf {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Disable hover expanding arrow on mobile footer */
+  .framer-jILoP .framer-y0lkhn {
+    display: none !important;
+  }
+
+  /* Ensure full tap friendliness */
+  .framer-jILoP {
+    cursor: pointer !important;
+  }
+}
